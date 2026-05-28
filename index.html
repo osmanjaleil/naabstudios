@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Naab Studios — Performance Creative for Meta, Pinterest, TikTok & Snapchat</title>
+<meta name="description" content="Naab Studios is a performance marketing studio building paid social campaigns on Meta, Pinterest, TikTok and Snapchat for ambitious DTC brands." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F4F1E8;
+    --ink: #0E0E0E;
+    --ink-soft: #2A2A2A;
+    --muted: #6B6B66;
+    --line: #D9D4C5;
+    --card: #ffffff;
+
+    --lime: #D4FF3A;
+    --magenta: #FF3D7F;
+    --indigo: #5B5BFF;
+    --orange: #FF7A1A;
+    --yellow: #FFE94E;
+    --cyan: #6FE7E2;
+
+    --radius: 22px;
+    --radius-sm: 12px;
+    --maxw: 1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.02em;
+  }
+  .brand-dot {
+    width: 14px; height: 14px;
+    background: var(--lime);
+    border-radius: 4px;
+    transform: rotate(45deg);
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .nav-links a { transition: opacity .2s; }
+  .nav-links a:hover { opacity: .55; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: transform .2s ease, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); background: #000; }
+  .btn.lime { background: var(--lime); color: var(--ink); }
+  .btn.lime:hover { background: #e2ff5e; }
+  .btn .arrow { transition: transform .2s; }
+  .btn:hover .arrow { transform: translate(2px, -2px); }
+
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--magenta);
+    border-radius: 50%;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.3); }
+  }
+  h1.hero-title {
+    font-size: clamp(48px, 9vw, 132px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    margin-bottom: 36px;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(110deg, var(--magenta) 0%, var(--orange) 50%, var(--indigo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-top: 24px;
+  }
+  .hero-sub {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin-bottom: 28px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 8px;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+  }
+  .pill.meta .dot { background: var(--indigo); }
+  .pill.pin .dot { background: #E60023; }
+  .pill.tik .dot { background: var(--ink); }
+  .pill.snap .dot { background: var(--yellow); border: 1px solid var(--ink); }
+
+  .hero-stat {
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+  }
+  .hero-stat .n {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .hero-stat .l {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 820px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero { padding-top: 50px; }
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--ink);
+    color: var(--bg);
+    overflow: hidden;
+    padding: 22px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    margin-top: 40px;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: scroll 28s linear infinite;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  .marquee span { display: inline-flex; align-items: center; gap: 48px; }
+  .marquee .star {
+    color: var(--lime);
+    font-size: 22px;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- CLIENTS ---------- */
+  .clients-section {
+    padding: 90px 0 40px;
+  }
+  .clients-head {
+    max-width: 760px;
+    margin-bottom: 52px;
+  }
+  .clients-title {
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    margin-top: 14px;
+  }
+  .clients-title em {
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(110deg, var(--magenta) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .client-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 28px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 160px;
+    transition: transform .25s ease, border-color .25s, background .25s, box-shadow .25s;
+    text-align: center;
+  }
+  .client-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--ink);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  }
+  .client-logo-wrap {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .client-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+  }
+  .client-logo-wrap.full-bleed {
+    background: transparent;
+    padding: 0;
+  }
+  .client-logo-wrap.full-bleed .client-logo {
+    padding: 0;
+    object-fit: cover;
+  }
+  .client-name {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .client-card.cta {
+    background: var(--lime);
+    border-color: var(--ink);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 500;
+    gap: 8px;
+  }
+  .client-card.cta:hover {
+    background: #e2ff5e;
+  }
+  .client-card.cta .cta-arrow {
+    font-size: 28px;
+    line-height: 1;
+  }
+  @media (max-width: 980px) {
+    .clients-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .clients-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- SECTION COMMON ---------- */
+  section.s {
+    padding: 110px 0;
+    position: relative;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 56px;
+    align-items: end;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  .section-intro {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 480px;
+    line-height: 1.5;
+  }
+  @media (max-width: 820px) {
+    section.s { padding: 70px 0; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .service {
+    border-radius: var(--radius);
+    padding: 36px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .service:hover { transform: translateY(-4px); }
+  .service.meta { background: var(--indigo); color: #fff; }
+  .service.pin { background: var(--magenta); color: #fff; }
+  .service.tik { background: var(--ink); color: var(--lime); }
+  .service.snap { background: var(--yellow); color: var(--ink); }
+
+  .service-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .service-name {
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin: 14px 0 0;
+  }
+  .service-desc {
+    font-size: 15.5px;
+    line-height: 1.55;
+    opacity: 0.9;
+    max-width: 380px;
+    margin-top: 16px;
+  }
+  .service-icon {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(2px);
+  }
+  .service.snap .service-icon { background: rgba(0,0,0,0.08); }
+  .service.tik .service-icon { background: rgba(212,255,58,0.12); }
+  .service-icon svg { width: 22px; height: 22px; }
+
+  .service-bullets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .service-bullets li {
+    list-style: none;
+    font-size: 12.5px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 6px 10px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.14);
+  }
+  .service.snap .service-bullets li { background: rgba(0,0,0,0.08); }
+  .service.tik .service-bullets li { background: rgba(212,255,58,0.1); }
+
+  @media (max-width: 820px) {
+    .services { grid-template-columns: 1fr; }
+    .service { padding: 28px; min-height: 280px; }
+  }
+
+  /* ---------- APPROACH ---------- */
+  .approach {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .approach .section-title, .approach .section-intro { color: var(--bg); }
+  .approach .section-intro { color: rgba(244,241,232,0.7); }
+  .approach .section-label { color: var(--lime); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .step {
+    background: var(--ink);
+    padding: 36px 28px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background .25s;
+  }
+  .step:hover { background: #1a1a1a; }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--lime);
+    text-transform: uppercase;
+  }
+  .step-title {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 20px 0 14px;
+  }
+  .step-desc {
+    font-size: 14.5px;
+    color: rgba(244,241,232,0.7);
+    line-height: 1.5;
+  }
+  @media (max-width: 980px) {
+    .steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- METRICS ---------- */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .metric {
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .metric:nth-child(1)::after {
+    content: ''; position: absolute; right: -40px; bottom: -40px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: var(--lime); opacity: 0.5;
+    filter: blur(2px);
+  }
+  .metric:nth-child(2)::after {
+    content: ''; position: absolute; right: -30px; top: -30px;
+    width: 120px; height: 120px;
+    background: var(--magenta); border-radius: 50%;
+    opacity: 0.4; filter: blur(2px);
+  }
+  .metric:nth-child(3)::after {
+    content: ''; position: absolute; left: -20px; bottom: -30px;
+    width: 110px; height: 110px;
+    background: var(--cyan); border-radius: 50%;
+    opacity: 0.55; filter: blur(2px);
+  }
+  .metric-n {
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .metric-l {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    max-width: 220px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+  }
+  @media (max-width: 820px) {
+    .metrics { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    background: var(--bg);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-text {
+    font-size: 28px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .about-text .h {
+    background: var(--lime);
+    padding: 0 6px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+  .about-list {
+    display: grid;
+    gap: 18px;
+  }
+  .about-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .about-item:last-child { border-bottom: 1px solid var(--line); }
+  .about-item-n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .about-item-t {
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .about-item-t span {
+    display: block;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  @media (max-width: 820px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-text { font-size: 22px; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-section {
+    background: var(--lime);
+    border-radius: var(--radius);
+    padding: 80px 56px;
+    margin: 0 28px 80px;
+    max-width: var(--maxw);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 1336px) {
+    .cta-section { margin-left: auto; margin-right: auto; }
+  }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+  }
+  .cta-title {
+    font-size: clamp(40px, 6vw, 84px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+  }
+  .cta-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .cta-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 360px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .cta-section .btn {
+    font-size: 17px;
+    padding: 16px 26px;
+  }
+  .cta-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-top: 18px;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.6;
+    z-index: 1;
+  }
+  .blob.a { width: 280px; height: 280px; background: var(--magenta); right: -60px; top: -60px; }
+  .blob.b { width: 220px; height: 220px; background: var(--indigo); left: -40px; bottom: -50px; opacity: 0.4; }
+
+  @media (max-width: 820px) {
+    .cta-section { padding: 56px 32px; margin: 0 16px 56px; }
+    .cta-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 32px;
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .foot-links { display: flex; gap: 22px; }
+  .foot-links a:hover { color: var(--ink); }
+  .foot-brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 600; }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-dot"></span>
+      <span>Naab Studios</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">Studio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="https://calendly.com/osmanjaleil08/1-1-discussion-with-usman" target="_blank" rel="noopener" class="btn lime">
+      Book a call
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A performance creative studio · Est. 2026</div>
+    <h1 class="hero-title">
+      We make ads that <em>move money,</em><br />
+      not just metrics.
+    </h1>
+    <div class="hero-grid">
+      <div>
+        <p class="hero-sub">
+          Naab Studios builds, launches and scales paid social campaigns on Meta, Pinterest, TikTok and Snapchat for ambitious DTC brands. Strategy, creative and media — under one roof.
+        </p>
+        <div class="hero-cta">
+          <a href="https://calendly.com/osmanjaleil08/1-1-discussion-with-usman" target="_blank" rel="noopener" class="btn">
+            Book a 1:1 with Usman
+            <span class="arrow">↗</span>
+          </a>
+          <a href="#services" class="btn lime">
+            See what we do
+          </a>
+        </div>
+        <div class="pill-row" style="margin-top:28px;">
+          <span class="pill meta"><span class="dot"></span>Meta</span>
+          <span class="pill pin"><span class="dot"></span>Pinterest</span>
+          <span class="pill tik"><span class="dot"></span>TikTok</span>
+          <span class="pill snap"><span class="dot"></span>Snapchat</span>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="hero-stat">
+          <div class="n">4</div>
+          <div class="l">Paid social platforms</div>
+        </div>
+        <div class="hero-stat">
+          <div class="n">8-fig</div>
+          <div class="l">Ad spend managed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="n">DTC</div>
+          <div class="l">Fashion · Home · Beauty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>
+      <span>Meta</span><span class="star">✦</span>
+      <span>Pinterest</span><span class="star">✦</span>
+      <span>TikTok</span><span class="star">✦</span>
+      <span>Snapchat</span><span class="star">✦</span>
+      <span>Strategy</span><span class="star">✦</span>
+      <span>Creative</span><span class="star">✦</span>
+      <span>Media Buying</span><span class="star">✦</span>
+      <span>Reporting</span><span class="star">✦</span>
+    </span>
+    <span aria-hidden="true">
+      <span>Meta</span><span class="star">✦</span>
+      <span>Pinterest</span><span class="star">✦</span>
+      <span>TikTok</span><span class="star">✦</span>
+      <span>Snapchat</span><span class="star">✦</span>
+      <span>Strategy</span><span class="star">✦</span>
+      <span>Creative</span><span class="star">✦</span>
+      <span>Media Buying</span><span class="star">✦</span>
+      <span>Reporting</span><span class="star">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<section class="s clients-section">
+  <div class="wrap">
+    <div class="clients-head reveal">
+      <div class="section-label">— Selected clients</div>
+      <h2 class="clients-title">A few of the brands we've helped <em>scale.</em></h2>
+    </div>
+    <div class="clients-grid reveal">
+      <a href="https://luckyfours.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap full-bleed">
+          <img class="client-logo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAEAAQADASIAAhEBAxEB/8QAGwABAAIDAQEAAAAAAAAAAAAAAAUGAgQHAwH/xAA5EAACAgICAAQDBQUIAgMAAAAAAQIDBAUGEQcSITETIkEUMlFhcRUjQlKRCBYzU4GCkqEkJWKxwf/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgMF/8QAHBEBAQEAAgMBAAAAAAAAAAAAAAEREiExQVEC/9oADAMBAAIRAxEAPwDh4ANPPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG+l2/ZF63GHr+B4OLh3YlGdy3IphkZP2mtWU6qE15oVqt/LO9xalJyTUO0km/ULIo6rsdTuVc3Uveai/L/AF9jEtGn8Q+b6nNjlYXKNnFp+tU7nOma/llVL5HH8uid8VsPTbTjvHvEDSYFGsW5d2NssGhdVU5lLXmlWvpGafm6+n+oM6c6AAQAAAAAB9Oy56bh2NjcRhzLluVfg6jIsdWuxcdL7Vspr3+H5vSFa+tjT/JP0I6rkHkujTo+M6fGk31DzYjzb3/ut83b/SK/QLn1W/iVr3sh/wAkPiV/5kP+SLpnco8Q9HKqOXbnaj4sfNVGesqx1NfjFOpdr9DY13iZ4hX5NOJj7KGfdbNV1Uz1WNfKyTfSik6m22/oDIoanB+04f8AJH1zgvecV/uR1PkHiByXQZ37N2GJwzYbGr0zIf3fxpwx5/WpzikpTX8XXon6dtpmnHxg31a7o43wiif89fH6k/8A7IuT653GE5VO2MJSrTSc1FuKb9l37GJbOZ+IvL+XYFWu3ezhPAps+LXiY+NXRSp9NKXlgl20m/fsqZUuegABAAAAAAAAAAAAAAAAFo8JdRXvfE/jWpur+JTfsqfjQf8AFCMvPJf6qLRK8d0EvEPm/KNnttz+z8TEry9vsMpU/Gn8ONj9IQ7Xmfql79JL9De/s1qNPijVuLV+40+uzNhbL6RUKZRT/rNFF49vNpotlHaanKljZLhKMn5VKM4TXzQnGSalFr0cWmmRqZJNas6I2Z7x8D42TGdnko7q8tli7+X5E303+Hb/AFLHy/ZU08a0fEMS6F8NXK/JzLa5eaE8u5rzxi/ZxhGMIdr0b8zXp0yCydndbOcqaMTCVialHEpVSafuvxS/JPo0ipoA2l7vosHh5xbL5ly7B0GJP4Svk5ZF7+7j0R9bLG/wUf8AtpfUJJqa1XE9Zg+FedzXkbv+Jm2vC0GLXZ5Hdav8S+X41w6a6+rX5oopdfGHlWJyTk1eLpY/B47pqVgaileyph6Ox/nNrzd+/XlKUmn7NMi/rPED5PvyS69+n0E0/Zp/oz6VHX/7SqeQuE7HW9T47Zx6mnXTr/w4zi38SH4edfJ2vf0/I5LirJlfCnFV0rrpKuEKk3Obb9IpL1bb+iJvj3Md/pNdbqsbJpydVdLz267Nx4ZONOX83w5ppS/+Uen+ZI6LZcg5BuK9VxrW6fUZWRGSnbrsWOM4VpdznO5tyrrUe3Jppdf0I1byupHxE2E9ZwbQcAyc15+x12RdnbCTt+LHDssSjHEhLt/cj25peilLr6MktVjrw18OcflNq8nLeSVzhp0182Bh9dTyV+Fk0+ov6J9r6lh8IuN+F+z5ph8UxdNm80yZRlZn7TIvli4NEIruUq6180499RTn122voRH9qHccX5DybU7vje4jlQsxbMOeIpLrGjRa4QcUvuxn80kvqkn9Q3mTk5CACuQA2l7tIAAAAAAAAAAAAAAAAAemPTdk3Rox6bb7Zfdrqg5yf6JerLFjeHvPcmr4tHCuRWVv18y11qX/AHEmPDbxCxeKcc3OizNDbm07ScJTycPYzwcqCj18itjFvyPr29Pd+/ZqPnc9dfO/ieqekyJJpZtuwuzMqKfo/LOxqMH+ah3+aI1JEjl4ez8PuA5+HsMDMw95yaqNVsbaJw+x4EZeZxk2ulZbJL5fdQj69OSRzvtdd9rr8S6aDxV8QdLF1YvKc7Ix5dqWPnNZVUk/dONvf/XRucg5xxXfYGNfneHetxN5VlVWXZWtuePj5FUZJzjKn1Xmkk139O+/yBcrDb63B4d4c0UZ+JRdyXklUMnq6ClLXYCfcGk/u22td9+6guvTs2OQaKjjvD9RxNaurK5lv7qsvJUq07cKmTSx8aP8s5t+aXs+mkzy3PPNTsPFd84yNBbsa5ZteR9jzr15YVwUVGuKguvRRXTl2vRdo8o87xsPxQ/vvh6/Jz8h7N50nsrIufXmb+HHyryx6XUVP1a6XSQXpG8knr+Obmei18KcuOBb8PYZqfU8u2D/AHkYT6brqTTivL6vrzNvtJdNp1GRofCnf5mE9breR8ix1sNnjQlKNmt005vyxrrScmpvrzfVRa79uzlmo2nHMDmWPtr9Rm7LW15Xx54mTdBTmu3JQckun69dtr1Xfp2TWt8SMmXiVteW73BlsKNvRkYebh12+T/xrYeRVwk0+vIlHrtfw/mCWJHQUU89r4x4eamqdGt1DyM3ZbfIrjCca5PzXT6X3K4r0ipNttrvr2WFGNp+feJuTl04lWo4Xp6FbfKutQ+Dr6F0vM1722tdevbbn+Rs8F32oxOH8o0eHx3NxdZuK68aW5uz4Qvj5ZNupy8jjPzdpfDri5e/fffpOeLWy4xwvh2H4aafX2fa5fCzd98K1x+Ld15q6rbH878vak4pLr0+76oL62uXc/5Bbyrk+VvXr6dfjXS+Hi41NShXTVD0jBdJJtJrt/i/0MOQ8W2uh0ul2uz+BVDc0SyMShWd3fCTSVko9fKpd+nr6/kR2x2OVnupXziqqI+SimEfLXTHvtxjH6dv1b92/Vtsv+t5Pw/lfHNZovEF7PAzdRj/AGXXbrAgrWqO+41XVP7yj69Sj6//AKZnbmpdblZofDXAw8SMv2lyyc7chwTc/sVVnw6qV169WWxnJpe/kgjby+JeHNDd0PFrHyKV6qFWgyXc/wAvK2o9/qyW5ZyzA0Wq4vk8MxJSvWm+yY27zYL7TSqrrYzjXUm4U2dy7c+5S6nHpoLJnlaOHaijh3Cd7psnNng7S7CWVyzNoSlbrcN+lWDX9PtNrfT+ke337IrHhTtcbYbbe4n919SuN16q+csJ4cLrfiNKvGirpL4krZ2yhFNNdtvpJL0rHFOXYmBxPk/GtxiZuTRvpUXSyse6Kurtqm5Jvz9qak369vv6mx4c87o4nyPW5UtVLI1WHfLJniwsSsuv8ko13Tk11J1+buMelFevXq+wvKdNnnGmo1dun8NdJhUbDfU2x/auVVBSsvz7Eo/Z4T91XWn117OTk37G7yTjev2HMND4Y8YrwpZGv81W126gv32Q/myLJT/yqYppL2+VkX4f821vF+T5e5nqsrLyMnGyKo50708vHttT/f1r0gpLt+/b9X6o1tZy3W6Xh+61Om1WRDa7brHt2uRcpWrE97K0kvlc379fT6thOkxXyTUXeJ+sp41xLE2GjwZ/ZcPAVEI2bKKi4q2+bhJycn877XovT09WePM8TjuN4TaO3R1WfabN5m1bC+2PU7Z1wj5VFdJxrUZ+ifXu20m+lV+D8hyOLcjp3WJK2u+qq2uFlLirKnZXKHnh5k4+aPm7Xa69DHkG+u2mJj4XdzopvuyZTvn5rb8i5p2Wza9O35YpJeyX1bbBy6QwAKwAAAAAAAAAAAAAAAAAAAAABaODcXyt9ibjaU6/J2VWnprsnhYsZStyJWT8kI9R+ZQXrKTXqkul032quemPffj2fEx77qJ9deaqxwfX4dphYvONl5nFtrVyDklVT3WHD/0+onFKOLP+G2ypelUIfejW+pTkk2uk26Rm5ORm5l2ZmX2ZGTfZK262yXcrJyfbk39W2eP1b+rfb/NgFoAAgZu22VMaXZN1Qk5Rg36Jvrtpfi+l/RGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z" alt="LuckyFours logo" loading="lazy" />
+        </span>
+        <span class="client-name">LuckyFours</span>
+      </a>
+      <a href="https://siraatskitchen.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/siraatskitchen.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=siraatskitchen.com&sz=128';" alt="Siraat's Kitchen logo" loading="lazy" />
+        </span>
+        <span class="client-name">Siraat's Kitchen</span>
+      </a>
+      <a href="https://onuia.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/onuia.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=onuia.com&sz=128';" alt="Onuia logo" loading="lazy" />
+        </span>
+        <span class="client-name">Onuia</span>
+      </a>
+      <a href="https://hushglow.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/hushglow.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=hushglow.com&sz=128';" alt="HushGlow logo" loading="lazy" />
+        </span>
+        <span class="client-name">HushGlow</span>
+      </a>
+      <a href="https://javvycoffee.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/javvycoffee.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=javvycoffee.com&sz=128';" alt="Javvy Coffee logo" loading="lazy" />
+        </span>
+        <span class="client-name">Javvy Coffee</span>
+      </a>
+      <a href="https://residencesupply.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/residencesupply.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=residencesupply.com&sz=128';" alt="Residence Supply logo" loading="lazy" />
+        </span>
+        <span class="client-name">Residence Supply</span>
+      </a>
+      <a href="https://ozarke.com" target="_blank" rel="noopener" class="client-card">
+        <span class="client-logo-wrap">
+          <img class="client-logo" src="https://logo.clearbit.com/ozarke.com" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=ozarke.com&sz=128';" alt="Ozarke logo" loading="lazy" />
+        </span>
+        <span class="client-name">Ozarke</span>
+      </a>
+      <a href="https://calendly.com/osmanjaleil08/1-1-discussion-with-usman" target="_blank" rel="noopener" class="client-card cta">
+        <span class="cta-arrow">↗</span>
+        <span>Your brand next</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">01 — Services</div>
+        <h2 class="section-title">Four platforms,<br />one studio.</h2>
+      </div>
+      <p class="section-intro">
+        We operate as your performance partner — from offer testing to creative production to live media. Pick a platform or run the full stack.
+      </p>
+    </div>
+
+    <div class="services">
+      <div class="service meta reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 12c0-4 3-7 7-7s7 3 7 7c0 2.5-1.5 5-4 5-1.5 0-3-1-3-3v-2"/></svg>
+        </div>
+        <div>
+          <div class="service-tag">Platform · 01</div>
+          <h3 class="service-name">Meta</h3>
+          <p class="service-desc">Facebook & Instagram ads engineered for full-funnel DTC growth — from creative testing matrices to high-spend scaling structures.</p>
+        </div>
+        <ul class="service-bullets">
+          <li>Advantage+ Shopping</li>
+          <li>Creative testing</li>
+          <li>Catalog ads</li>
+          <li>Retention</li>
+        </ul>
+      </div>
+
+      <div class="service pin reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l-2 6"/></svg>
+        </div>
+        <div>
+          <div class="service-tag">Platform · 02</div>
+          <h3 class="service-name">Pinterest</h3>
+          <p class="service-desc">Where intent meets aesthetics. We build static pin engines and Idea ad flows that work for jewelry, fashion, home and lifestyle brands.</p>
+        </div>
+        <ul class="service-bullets">
+          <li>Pin design</li>
+          <li>Keyword strategy</li>
+          <li>Audience layering</li>
+          <li>Shopping</li>
+        </ul>
+      </div>
+
+      <div class="service tik reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#D4FF3A" stroke-width="2"><path d="M9 4v12a4 4 0 1 1-4-4"/><path d="M9 4c0 3 2 5 6 5"/></svg>
+        </div>
+        <div>
+          <div class="service-tag">Platform · 03</div>
+          <h3 class="service-name">TikTok</h3>
+          <p class="service-desc">Spark Ads, UGC and creator-led concepts produced fast. We don't chase trends — we build hooks that survive the first 3 seconds.</p>
+        </div>
+        <ul class="service-bullets">
+          <li>UGC briefs</li>
+          <li>Hook testing</li>
+          <li>Spark Ads</li>
+          <li>Creator sourcing</li>
+        </ul>
+      </div>
+
+      <div class="service snap reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E0E0E" stroke-width="2"><path d="M12 4c4 0 6 3 6 7v3l2 2-2 1c-1 2-3 3-6 3s-5-1-6-3l-2-1 2-2v-3c0-4 2-7 6-7z"/></svg>
+        </div>
+        <div>
+          <div class="service-tag">Platform · 04</div>
+          <h3 class="service-name">Snapchat</h3>
+          <p class="service-desc">An underrated, lower-CPM channel for fashion, beauty and accessories. We treat it as a serious growth lever — not an afterthought.</p>
+        </div>
+        <ul class="service-bullets">
+          <li>Story Ads</li>
+          <li>Catalog</li>
+          <li>Pixel hygiene</li>
+          <li>Snap-native creative</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="s approach" id="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">02 — Approach</div>
+        <h2 class="section-title">How a Naab<br />engagement runs.</h2>
+      </div>
+      <p class="section-intro">
+        Tight feedback loops between creative, media and reporting. No black boxes — you see what we test and why it worked.
+      </p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div>
+          <div class="step-num">Step 01</div>
+          <h4 class="step-title">Diagnose</h4>
+        </div>
+        <p class="step-desc">Account audit, offer review, creative gap analysis. We start by knowing exactly what's working — and what's bleeding spend.</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">Step 02</div>
+          <h4 class="step-title">Create</h4>
+        </div>
+        <p class="step-desc">In-house production pipeline — static, video, UGC — built around tested hook frameworks for each platform.</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">Step 03</div>
+          <h4 class="step-title">Launch</h4>
+        </div>
+        <p class="step-desc">Clean account structures, intentional testing budgets, daily monitoring. Every dollar has a job.</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-num">Step 04</div>
+          <h4 class="step-title">Scale</h4>
+        </div>
+        <p class="step-desc">Winners get scaled with discipline. Losers get killed without ego. Reports go out weekly in plain English.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS / STATS -->
+<section class="s">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">03 — The studio in numbers</div>
+        <h2 class="section-title">Built by an operator,<br />not an account exec.</h2>
+      </div>
+      <p class="section-intro">
+        Naab is led by Usman — a paid social specialist with years of in-the-platform spend across fashion, footwear, jewelry, home and food categories.
+      </p>
+    </div>
+    <div class="metrics">
+      <div class="metric reveal">
+        <div class="metric-n">04</div>
+        <div class="metric-l">Paid social platforms covered under one team</div>
+      </div>
+      <div class="metric reveal">
+        <div class="metric-n">100s</div>
+        <div class="metric-l">Of ad creatives produced, tested and iterated</div>
+      </div>
+      <div class="metric reveal">
+        <div class="metric-n">DTC</div>
+        <div class="metric-l">Specialised in fashion, jewelry, footwear & home</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="s about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="section-label">04 — The studio</div>
+        <p class="about-text">
+          We're a small, senior team that runs paid social like an <span class="h">operator</span> — not an agency machine. Fewer clients, sharper creative, real accountability.
+        </p>
+      </div>
+      <div class="about-list reveal">
+        <div class="about-item">
+          <div class="about-item-n">01</div>
+          <div class="about-item-t">Senior on every account
+            <span>No juniors learning on your budget.</span>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-n">02</div>
+          <div class="about-item-t">Creative + media, one team
+            <span>The people writing hooks are the ones reading the data.</span>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-n">03</div>
+          <div class="about-item-t">Plain-English reporting
+            <span>Weekly notes, no jargon, no theatre.</span>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-n">04</div>
+          <div class="about-item-t">Built for ambitious DTC
+            <span>Brands that want to scale — not coast.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="cta-section reveal">
+    <div class="blob a"></div>
+    <div class="blob b"></div>
+    <div class="cta-grid">
+      <div>
+        <div class="section-label" style="color: var(--ink-soft);">05 — Let's talk</div>
+        <h2 class="cta-title">Want ads<br />that actually <em>perform?</em></h2>
+      </div>
+      <div>
+        <p class="cta-sub">
+          Book a 30-minute call with Usman. We'll talk through your brand, your numbers and where we can move the needle.
+        </p>
+        <a href="https://calendly.com/osmanjaleil08/1-1-discussion-with-usman" target="_blank" rel="noopener" class="btn">
+          Book a 1:1 with Usman
+          <span class="arrow">↗</span>
+        </a>
+        <div class="cta-meta">No-pitch · 30 min · Calendly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="brand-dot"></span>
+      Naab Studios
+    </div>
+    <div class="foot-links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">Studio</a>
+      <a href="https://calendly.com/osmanjaleil08/1-1-discussion-with-usman" target="_blank" rel="noopener">Book a call</a>
+    </div>
+    <div>© 2026 Naab Studios · naabstudios.com</div>
+  </div>
+</footer>
+
+<script>
+  // Simple reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const t = document.querySelector(id);
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
