@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Lime diamond matching the brand-dot -->
+  <rect x="14" y="14" width="36" height="36" rx="8" ry="8"
+        fill="#D4FF3A" stroke="#0E0E0E" stroke-width="3"
+        transform="rotate(45 32 32)"/>
+</svg>
